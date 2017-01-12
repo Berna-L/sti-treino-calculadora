@@ -56,7 +56,7 @@ public class Util {
         return escolha;
     }
     
-    public static TipoOperacao numeroParaOperacao(int n){
+    public static TipoOperacao numeroParaOperacao(int n) throws IllegalArgumentException{
         switch(n){
             case 1:
                 return TipoOperacao.SOMA;
@@ -67,7 +67,7 @@ public class Util {
             case 4:
                 return TipoOperacao.DIVISAO;
         }
-        return null;
+        throw new IllegalArgumentException("Número de operação inválido");
     }
     
     public static void imprimeResultado(String desc, int resultado){
