@@ -15,5 +15,9 @@ public class Divisao implements Operacao {
     public int executar(int a, int b) {
         return a / b;
     }
-    
+
+    @Override
+    public String toString(){
+        return "Divisão";
+    }    
 }

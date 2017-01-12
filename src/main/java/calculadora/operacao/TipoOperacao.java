@@ -16,4 +16,5 @@ public enum TipoOperacao {
         MULTIPLICACAO,
         DIVISAO
         
+        
 }

@@ -1,9 +1,14 @@
 package calculadora;
 
+import calculadora.operacao.Operacao;
 import calculadora.operacao.OperacaoFactory;
+import calculadora.operacao.TipoOperacao;
+import static calculadora.util.Util.*;
+
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -30,7 +35,12 @@ public class Calculadora {
     }
         
     public void run(){
-
+        TipoOperacao to = getOperacaoDesejada();
+        Operacao o = fac.getOperacao(to);
+        int a = getValor(o.toString(), 1);
+        int b = getValor(o.toString(), 2);
+        int r = o.executar(a, b);
+        imprimeResultado(o.toString(), r);
     }
-    
+
 }
