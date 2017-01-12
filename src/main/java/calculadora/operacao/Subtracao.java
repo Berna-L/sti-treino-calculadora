@@ -9,18 +9,11 @@ package calculadora.operacao;
  *
  * @author bernardolopes at id.uff.br
  */
-public class OperacaoFactory {
-    
-    public OperacaoFactory() {}
-    
-    public Operacao getOperacao(TipoOperacao o){
-        switch(o){
-            case SOMA:
-                return new Soma();
-            case SUBTRACAO:
-                
-        }
-        return null;
+public class Subtracao implements Operacao {
+
+    @Override
+    public int executar(int a, int b) {
+        return a - b;
     }
     
 }
