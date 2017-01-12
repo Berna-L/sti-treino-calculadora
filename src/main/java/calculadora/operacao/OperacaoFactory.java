@@ -18,7 +18,11 @@ public class OperacaoFactory {
             case SOMA:
                 return new Soma();
             case SUBTRACAO:
-                
+                return new Subtracao();
+            case MULTIPLICACAO:
+                return new Multiplicacao();
+            case DIVISAO:
+                return new Divisao();
         }
         return null;
     }
