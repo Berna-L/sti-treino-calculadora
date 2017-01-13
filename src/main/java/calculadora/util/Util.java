@@ -7,6 +7,7 @@ package calculadora.util;
 
 import calculadora.operacao.TipoOperacao;
 import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
@@ -14,46 +15,35 @@ import java.io.IOException;
  */
 public class Util {
     
-    private static final String TEXTO_SELETOR =
+    public static final String TEXTO_SELETOR =
             "Escolha a operação:\n"
             + "1 -- Soma\n"
             + "2 -- Subtração\n"
             + "3 -- Multiplicação\n"
             + "4 -- Divisão";
 
-    private static final String TEXTO_VALOR = 
+    public static final String TEXTO_VALOR = 
             "Insira qual será o %dº valor para a operação de %s:";
     
-    private static final String TEXTO_RESULTADO = 
+    public static final String TEXTO_RESULTADO = 
             "O resultado da %s é: %d";
     
-    public static TipoOperacao getOperacaoDesejada() {
+    public static TipoOperacao getOperacaoDesejada(Scanner in) {
         TipoOperacao to = null;
         int escolha = 0;
         do{
-            System.out.println(TEXTO_SELETOR);
+            System.out.print(TEXTO_SELETOR);
+            escolha = in.nextInt();
             try{
-                escolha = System.in.read();
-            } catch (IOException e) {
-                escolha = 0;
-            }
-            to = numeroParaOperacao(escolha);
+                to = numeroParaOperacao(escolha);
+            } catch (IllegalArgumentException e){ }
         } while(to == null);
         return to;
     }
     
-    public static int getValor(String desc, int indice){
-        int escolha = 0;
-        boolean erro = false;
-        do{
-            System.out.println(String.format(TEXTO_VALOR, indice, desc));
-            try{
-                return System.in.read();
-            } catch (IOException e){
-                erro = true;
-            }
-        }while(erro);
-        return escolha;
+    public static int getValor(Scanner in, String desc, int indice){
+        System.out.println(String.format(TEXTO_VALOR, indice, desc));
+        return in.nextInt();
     }
     
     public static TipoOperacao numeroParaOperacao(int n) throws IllegalArgumentException{

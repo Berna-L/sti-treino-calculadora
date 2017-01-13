@@ -8,6 +8,7 @@ import static calculadora.util.Util.*;
 import java.io.FilterOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.Scanner;
 
 
 /*
@@ -35,7 +36,8 @@ public class Calculadora {
     }
         
     public void run(){
-        TipoOperacao to = getOperacaoDesejada();
+        Scanner in = new Scanner(System.in);
+        TipoOperacao to = getOperacaoDesejada(in);
         Operacao o = fac.getOperacao(to);
         int a = getValor(o.toString(), 1);
         int b = getValor(o.toString(), 2);
