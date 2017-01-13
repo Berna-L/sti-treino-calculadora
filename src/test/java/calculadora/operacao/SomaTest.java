@@ -28,4 +28,11 @@ public class SomaTest {
         
         assertEquals(3, r);
     }
+
+    @Test
+    public void deveriaDevolverStringCerta() {
+        Operacao o = new Soma();
+        assertEquals("Soma", o.toString());
+    }
+
 }

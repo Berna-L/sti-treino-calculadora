@@ -28,4 +28,11 @@ public class MultiplicacaoTest {
 
         assertEquals(6, r);
     }
+
+    @Test
+    public void deveriaDevolverStringCerta() {
+        Operacao o = new Multiplicacao();
+        assertEquals("Multiplicação", o.toString());
+    }
+
 }

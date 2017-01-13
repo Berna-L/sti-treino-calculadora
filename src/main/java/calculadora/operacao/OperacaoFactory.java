@@ -14,6 +14,9 @@ public class OperacaoFactory {
     public OperacaoFactory() {}
     
     public Operacao getOperacao(TipoOperacao o){
+        if (o == null){
+            return null;
+        }
         switch(o){
             case SOMA:
                 return new Soma();
@@ -23,8 +26,9 @@ public class OperacaoFactory {
                 return new Multiplicacao();
             case DIVISAO:
                 return new Divisao();
+            default:
+                return null;
         }
-        return null;
     }
     
 }

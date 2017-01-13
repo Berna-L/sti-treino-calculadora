@@ -34,7 +34,6 @@ public class OperacaoFactoryTest {
         assertThat(o, is(instanceOf(Soma.class)));
     }
     
-    
     @Test
     public void deveriaRetornarObjetoSubtracao(){
         Operacao o = fac.getOperacao(TipoOperacao.SUBTRACAO);
@@ -52,5 +51,10 @@ public class OperacaoFactoryTest {
         Operacao o = fac.getOperacao(TipoOperacao.DIVISAO);
         assertThat(o, is(instanceOf(Divisao.class)));
     }
-    
+        
+    @Test
+    public void deveriaRetornarObjetoNuloParaParametroNulo(){
+        Operacao o = fac.getOperacao(null);
+        assertEquals(null, o);        
+    }
 }

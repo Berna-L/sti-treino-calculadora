@@ -29,4 +29,10 @@ public class DivisaoTest {
         assertEquals(2, r);
     }
     
+    @Test
+    public void deveriaDevolverStringCerta() {
+        Operacao o = new Divisao();
+        assertEquals("Divisão", o.toString());
+    }
+    
 }

@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author bernardolopes at id.uff.br
  */
 public class Util {
-    
+        
     public static final String TEXTO_SELETOR =
             "Escolha a operação:\n"
             + "1 -- Soma\n"
@@ -32,7 +32,7 @@ public class Util {
         TipoOperacao to = null;
         int escolha = 0;
         do{
-            System.out.print(TEXTO_SELETOR);
+            System.out.println(TEXTO_SELETOR);
             escolha = in.nextInt();
             try{
                 to = numeroParaOperacao(escolha);

@@ -5,6 +5,9 @@
  */
 package calculadora;
 
+import calculadora.operacao.Operacao;
+import calculadora.operacao.OperacaoFactory;
+import calculadora.operacao.TipoOperacao;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
@@ -14,6 +17,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 /**
  *
@@ -34,5 +38,13 @@ public class CalculadoraTest {
     public void cleanUpStreams(){
         System.setOut(null);
         System.setErr(null);
+    }
+    
+    @Test
+    public void testaRun(){
+        //mocks
+        OperacaoFactory fac = mock(OperacaoFactory.class);
+        TipoOperacao to = mock(TipoOperacao.class);
+        Operacao o = mock(Operacao.class);    
     }
 }

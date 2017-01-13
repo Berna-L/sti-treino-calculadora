@@ -28,5 +28,11 @@ public class SubtracaoTest {
         
         assertEquals(1, r);
     }
+
+    @Test
+    public void deveriaDevolverStringCerta() {
+        Operacao o = new Subtracao();
+        assertEquals("Subtração", o.toString());
+    }
     
 }
