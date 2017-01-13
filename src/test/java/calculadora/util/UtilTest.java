@@ -13,6 +13,7 @@ import java.io.PrintStream;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import net.bytebuddy.implementation.bind.annotation.IgnoreForBinding;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,6 +21,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -45,14 +47,26 @@ public class UtilTest {
     }
 
     @Test
-    public void numeroParaOperacaoValidoDevolveCorretos(){
+    public void numeroParaOperacaoDevolveSoma(){
         TipoOperacao to = Util.numeroParaOperacao(1);
         assertEquals(TipoOperacao.SOMA, to);
-        to = Util.numeroParaOperacao(2);
+    }
+
+    @Test
+    public void numeroParaOperacaoDevolveSubtracao(){
+        TipoOperacao to = Util.numeroParaOperacao(2);
         assertEquals(TipoOperacao.SUBTRACAO, to);
-        to = Util.numeroParaOperacao(3);
+    }
+    
+    @Test
+    public void numeroParaOperacaoDevolveMultiplicacao(){
+        TipoOperacao to = Util.numeroParaOperacao(3);
         assertEquals(TipoOperacao.MULTIPLICACAO, to);
-        to = Util.numeroParaOperacao(4);
+    }
+    
+    @Test
+    public void numeroParaOperacaoDevolveDivisao(){
+        TipoOperacao to = Util.numeroParaOperacao(4);
         assertEquals(TipoOperacao.DIVISAO, to);
     }
     
@@ -62,20 +76,41 @@ public class UtilTest {
     }
     
     @Test
-    public void getOperacaoDesejadaDevolveCorretos(){
-        Scanner in = new Scanner("1\n2\n3\n4\n5\n1");
+    public void getOperacaoDesejadaDevolveSoma(){
+        Scanner in = new Scanner("1");
         TipoOperacao to = Util.getOperacaoDesejada(in);
         assertEquals(TipoOperacao.SOMA, to);
-        to = Util.getOperacaoDesejada(in);
+    }
+
+    @Test
+    public void getOperacaoDesejadaDevolveSubtracao(){
+        Scanner in = new Scanner("2");
+        TipoOperacao to = Util.getOperacaoDesejada(in);
         assertEquals(TipoOperacao.SUBTRACAO, to);
-        to = Util.getOperacaoDesejada(in);
+    }
+
+    @Test
+    public void getOperacaoDesejadaDevolveMultiplicacao(){
+        Scanner in = new Scanner("3");
+        TipoOperacao to = Util.getOperacaoDesejada(in);
         assertEquals(TipoOperacao.MULTIPLICACAO, to);
-        to = Util.getOperacaoDesejada(in);
+    }
+
+    @Test
+    public void getOperacaoDesejadaDevolveDivisao(){
+        Scanner in = new Scanner("4");
+        TipoOperacao to = Util.getOperacaoDesejada(in);
         assertEquals(TipoOperacao.DIVISAO, to);
-        to = Util.getOperacaoDesejada(in);
-        assertEquals(TipoOperacao.SOMA, to);
     }
     
+    @Test
+    public void getOperacaoDesejadaPediuMaisDeUmaVez(){
+        Scanner in = new Scanner("5\n1");
+        TipoOperacao to = Util.getOperacaoDesejada(in);
+        assertEquals(TipoOperacao.SOMA, to);
+        assertTrue(!in.hasNext());
+    }
+
     @Test
     public void getValorDevolveValorCorreto(){
         Scanner in = new Scanner("3");

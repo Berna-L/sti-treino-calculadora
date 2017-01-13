@@ -35,7 +35,4 @@ public class CalculadoraTest {
         System.setOut(null);
         System.setErr(null);
     }
-    
-    
-    
 }
