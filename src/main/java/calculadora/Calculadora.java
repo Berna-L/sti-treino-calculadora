@@ -39,10 +39,9 @@ public class Calculadora {
         Scanner in = new Scanner(System.in);
         TipoOperacao to = getOperacaoDesejada(in);
         Operacao o = fac.getOperacao(to);
-        int a = getValor(o.toString(), 1);
-        int b = getValor(o.toString(), 2);
+        int a = getValor(in, o.toString(), 1);
+        int b = getValor(in, o.toString(), 2);
         int r = o.executar(a, b);
         imprimeResultado(o.toString(), r);
     }
-
 }
